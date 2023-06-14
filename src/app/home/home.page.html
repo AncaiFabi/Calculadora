@@ -1,0 +1,225 @@
+<ion-content [fullscreen]="true">
+  <div id="full">
+    <div id="numbers">
+      <ion-row>
+        <ion-col>
+          <h1>{{numero}}</h1>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div id="container">
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              shape="round"
+              color="medium"
+              style="font-weight: bold"
+              (click)="clear()"
+              >AC</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="medium"
+              style="font-weight: bold"
+              (click)="negativo()"
+              >+/-</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="medium"
+              style="font-weight: bold"
+              (click)="percent()"
+              >%</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="warning"
+              style="font-weight: bold"
+              (click)="dividir()"
+              >/</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('7')"
+              >7</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('8')"
+              >8</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('9')"
+              >9</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="warning"
+              style="font-weight: bold"
+              (click)="mult()"
+              >X</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('4')"
+              >4</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('5')"
+              >5</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('6')"
+              >6</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="warning"
+              style="font-weight: bold"
+              (click)="sub()"
+              >-</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('1')"
+              >1</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('2')"
+              >2</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('3')"
+              >3</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="warning"
+              style="font-weight: bold"
+              (click)="somar()"
+              >+</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="6">
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="numeros('0')"
+              >0</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="light"
+              style="font-weight: bold"
+              (click)="virgula()"
+              >,</ion-button
+            >
+          </ion-col>
+          <ion-col>
+            <ion-button
+              expand="block"
+              shape="round"
+              color="warning"
+              style="font-weight: bold"
+              (click)="igual()"
+              >=</ion-button
+            >
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

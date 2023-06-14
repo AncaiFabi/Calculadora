@@ -1,0 +1,25 @@
+#container
+{
+ display: block;
+}
+
+#numbers
+{
+  text-align: end;
+  font-weight: bold;
+  display: flex;
+  height: 100%;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 10px;
+  h1{
+    font-size: 4rem;
+ }
+}
+
+#full{
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
