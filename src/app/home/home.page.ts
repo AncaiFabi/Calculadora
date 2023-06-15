@@ -8,6 +8,7 @@ import { Component } from '@angular/core';
 export class HomePage {
   public numero = '0';
   public numeroAux = '0';
+  public operacao = '';
 
   constructor() {}
 
@@ -16,13 +17,25 @@ export class HomePage {
     this.numeroAux = '0';
   }
 
-  somar() {}
+  somar() {
+    this.operacao = 'mais';
+    this.numeroAux = this.numero;
+  }
 
-  sub() {}
+  sub() {
+    this.operacao = 'menos';
+    this.numeroAux = this.numero;
+  }
 
-  mult() {}
+  mult() {
+    this.operacao = 'mult';
+    this.numeroAux = this.numero;
+  }
 
-  dividir() {}
+  dividir() {
+    this.operacao = 'div';
+    this.numeroAux = this.numero;
+  }
 
   clear() {
     this.numero = '0';
@@ -30,19 +43,56 @@ export class HomePage {
   }
 
   negativo() {
-    if (this.numero !='0') {
+    if (this.numero != '0') {
       this.numero = this.numero.includes('-')
-      ? this.numero.replace('-','')
-      : '-' + this.numero;
+        ? this.numero.replace('-', '')
+        : '-' + this.numero;
     }
   }
 
-  percent() {}
+  percent() {
+    if (this.numero.length <= 8) {
+      this.operacao = '';
+      this.numeroAux = '';
+      const fixado = this.numero.includes(',')
+        ? this.numero.split(',')[1].length + 2
+        : 2;
+      this.numero = (this.convert(this.numero) / 100)
+        .toFixed(fixado)
+        .toString()
+        .replace('.', ',');
+    }
+  }
 
-  igual() {}
+  igual() {
+    const numeroFinal = this.convert(this.numero);
+    const numeroFinalAux = this.convert(this.numeroAux);
+
+    switch (this.operacao) {
+      case 'mais':
+        this.numero = this.sum(numeroFinal, numeroFinalAux).toString();
+        break;
+
+      case 'menos':
+        this.numero = this.subtract(numeroFinalAux, numeroFinal).toString();
+        break;
+
+      case 'mult':
+        this.numero = this.multiply(numeroFinal, numeroFinalAux).toString();
+        break;
+
+      case 'div':
+        this.numero = this.divide(numeroFinalAux, numeroFinal).toString();
+        break;
+    }
+    this.operacao = '';
+  }
 
   numeros(num: string) {
-    if (this.numero.startsWith('0')) {
+    if (
+      (this.numero.startsWith('0') && !this.numero.startsWith('0,')) ||
+      this.operacao != ''
+    ) {
       this.numero = '';
     }
     if (this.numero.length <= 8) {
@@ -54,5 +104,26 @@ export class HomePage {
     if (this.numero.length <= 8 && !this.numero.includes(',')) {
       this.numero += ',';
     }
+  }
+
+  convert(dados: string): number {
+    if (dados.includes(',')) {
+      return parseFloat(dados.replace(',', '.'));
+    } else {
+      return parseInt(dados);
+    }
+  }
+
+  sum(a: number, b: number): number {
+    return a + b;
+  }
+  subtract(a: number, b: number): number {
+    return a - b;
+  }
+  divide(a: number, b: number): number {
+    return a / b;
+  }
+  multiply(a: number, b: number): number {
+    return a * b;
   }
 }
