@@ -9,6 +9,7 @@ export class HomePage {
   public numero = '0';
   public numeroAux = '0';
   public operacao = '';
+  public newNumber = false;
 
   constructor() {}
 
@@ -20,26 +21,32 @@ export class HomePage {
   somar() {
     this.operacao = 'mais';
     this.numeroAux = this.numero;
+    this.newNumber = true;
   }
 
   sub() {
     this.operacao = 'menos';
     this.numeroAux = this.numero;
+    this.newNumber = true;
   }
 
   mult() {
     this.operacao = 'mult';
     this.numeroAux = this.numero;
+    this.newNumber = true;
   }
 
   dividir() {
     this.operacao = 'div';
     this.numeroAux = this.numero;
+    this.newNumber = true;
   }
 
   clear() {
     this.numero = '0';
     this.numeroAux = '0';
+    this.operacao = '';
+    this.newNumber = false;
   }
 
   negativo() {
@@ -89,14 +96,16 @@ export class HomePage {
   }
 
   numeros(num: string) {
-    if (
-      (this.numero.startsWith('0') && !this.numero.startsWith('0,')) ||
-      this.operacao != ''
-    ) {
+    if (this.numero.startsWith('0') && !this.numero.startsWith('0,')) {
       this.numero = '';
     }
     if (this.numero.length <= 8) {
-      this.numero += num;
+      if (this.newNumber) {
+        this.numero = num;
+        this.newNumber = false;
+      } else {
+        this.numero += num;
+      }
     }
   }
 
